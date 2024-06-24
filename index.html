@@ -36,32 +36,34 @@
 
         button {
             border-radius: 9px;
-            background-color: #999;
+            background-color: transparent;
             margin: 10px;
             font-family: 'Oxygen', sans-serif;
-            border: none;
+            border: 2px;
+            border-color: #181716;
             padding: 10px;
-            color: #fff;
+            color: #181716;
             text-align: center;
             width: 90px;
 
         }
 
+        /*
         #mass {
             background-color: #c9ada7;
         }
 
         #volume {
             background-color: #9a8c98;
-            ;
+            
         }
 
-        /*#temperature {
-        //    background-color: #4a4e69;
+        #temperature {
+            background-color: #4a4e69;
         }*/
 
         button:hover {
-            background-color: #b3b3b3;
+            background-color: #afa8a1;
         }
 
         .categoryButtons {
@@ -86,8 +88,6 @@
             align-items: center;
             align-content: center;
 
-
-
         }
 
         #toImperial,
@@ -99,7 +99,7 @@
         #kmToMile,
         #hours,
         #days {
-            background-color: #009688;
+            background-color: #4a4e69;
             font-size: 15px;
             /* width: 90px; */
         }
@@ -113,7 +113,7 @@
         #kmToMile:hover,
         #hours:hover,
         #days:hover {
-            background-color: #ffad66;
+            background-color: #9da5df;
         }
 
         input {
@@ -124,8 +124,6 @@
             font-family: 'Oxygen', sans-serif;
             margin: auto;
             border: none;
-
-
         }
 
 
@@ -143,7 +141,7 @@
 
 
         #reset {
-            background-color: #c34a41;
+            background-color: #c3b841;
             color: #fff;
             border: none;
             margin: 15px auto;
@@ -165,8 +163,7 @@
             <div class="categoryButtons">
                 <button id="mass" title="Mass"><i class="fas fa-balance-scale fa-2x"></i></button>
                 <button id="volume" title="Volume"><i class="fas fa-glass-whiskey fa-2x"></i></button>
-                <button id="temperature" title="Temperature"><i class="fa fa-thermometer-2 fa-2x"></i></button>
-
+                <button id="liquid" title="liquid"><i class="fa fa-thermometer-2 fa-2x"></i></button>
             </div>
             <input type="number" style="display: none" placeholder="Enter a number">
 
@@ -186,6 +183,10 @@
             <div class="time-units">
                 <button id="hours" style="display:none">Hours</button>
                 <button id="days" style="display:none">Days</button>
+            </div>
+            <div class="liquid-units">
+                <button id="liquid-units" style="display:none">Liquid unit equivalent</button>
+                <button id="liquid-units-reverse" style="display:none">Reverse</button>
             </div>
         </div>
     </div>
@@ -505,6 +506,37 @@
                 hrToDay() {
                     let hrday = (input.value / 24).toFixed(2);
                     return hrday;
+                }
+            }
+        }; 
+
+        const liquidVolume = {
+            equivalents: {
+                tspTotbsp() {
+                    let ttb = (input.value / 3).toFixed(1);
+                    return ttb;
+                },
+                tbspTocup() {
+                    let tbtc = (input.value / 16).toFixed(1);
+                    return tbtc;
+                },
+                cupToflounce() {
+                    let ctfl = (input.value * 8).toFixed(1);
+                    return ctfl;
+                }
+            },
+            reverse: {
+                tbspTotsp() {
+                    let tbtt = (input.value * 3).toFixed(1);
+                    return tbtt;
+                },
+                cupTotbsp() {
+                    let cttb = (input.value * 16).toFixed(1);
+                    return cttb;
+                },
+                flounceTocup() {
+                    let fltc = (input.value / 8).toFixed(1);
+                    return fltc;
                 }
             }
         };
