@@ -6,11 +6,12 @@
     <link href="https://fonts.googleapis.com/css?family=Oxygen&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <style>
         body{
-	background-color:#3a3a3a;
+	background-color:#ffffff;
 }
 
 .container{
@@ -24,26 +25,27 @@
 
 
 h1 {
-	font-family: 'Oxygen', sans-serif;
+	font-family: "Roboto Serif", serif;
 	font-size: 40px;
 	text-align:center;
-	color: #fff;
+	color: #191919;
 }
 
 
 
 button {
-	border-radius: 9px;
-	background-color: #999;
-	margin: 10px;
-	font-family: 'Oxygen', sans-serif;
-	border: none;
+	border-radius: 10px;
+	background-color: transparent;
+	margin: 5px;
+	font-family: "Roboto Serif", serif;
+	border: 2px solid #191919;
 	padding: 10px ;
-	color: #fff;
+	color: #191919;
 	text-align: center;
-	width: 90px;
+	width: 110px;
 	
 }
+/*
 #mass{
     background-color: #60688b;
 }
@@ -54,8 +56,9 @@ button {
 #temperature{
     background-color: #ff9233;
 }
+    */
 button:hover{
-	background-color: #b3b3b3;
+	border-color: #BDAFA2;
 }
 
 .categoryButtons{
@@ -71,63 +74,60 @@ button:hover{
 	
 }
 
- .metricImperial, .temp-unit-buttons, .speed-units, .time-units{
+ .metricImperial, .temp-unit-buttons, .speed-units, .time-units, .cooking-units{
 	display: flex;
 	justify-content: center;
 	align-items:center;
 	align-content: center;
-	
-	
-	
 }
 
-#toImperial, #toMetric, #toCelsius, #toFahrenheit, #toKelvin, #mileToKm, #kmToMile, #hours, #days {
-	background-color:#009688;
-	font-size: 15px;
+#toImperial, #toMetric, #toCelsius, #toFahrenheit, #toKelvin, #mileToKm, #kmToMile, #hours, #days, #measurement, #m2ml {
+	background-color:#F7F2EE;
+    border-color: transparent;
+	font-size: 13px;
     /* width: 90px; */
 }
 
-#toImperial:hover, #toMetric:hover, #toCelsius:hover, #toFahrenheit:hover, #toKelvin:hover, #mileToKm:hover, #kmToMile:hover, #hours:hover, #days:hover{
-	background-color: #ffad66;
+#toImperial:hover, #toMetric:hover, #toCelsius:hover, #toFahrenheit:hover, #toKelvin:hover, #mileToKm:hover, #kmToMile:hover, #hours:hover, #days:hover, #measurement:hover, #m2ml:hover{
+	border-color: #BDAFA2;
 }
 
 input {
-	width: 300px;
+	width: 459px;
 	padding: 10px;
 	border-radius: 9px;
 	text-align: center;
-	font-family: 'Oxygen', sans-serif;
+	font-family: "Roboto Serif", serif;
 	margin: auto;
-    border: none;
-
-	
+    border: 2px solid #191919;
 }
 
 
 #output {
-    font-family: monospace;
+    font-family: "Roboto Serif", serif;
     font-size: 15px;
     text-align: left;
     margin: auto;
     padding: 10px;
-    width: 300px;
+    width: 459px;
     background-color: #fff;
+    border: 2px solid #191919;
     border-radius: 9px;
 }
 
 
 
 #reset{
-	background-color: #c34a41;
+	background-color: #524941;
 	color: #fff;
 	border: none;
 	margin: 15px auto;
-    width: 325px;
+    width: 485px;
 
 }
 
 #reset:hover{
-	background-color: #b3b3b3;
+	background-color: #BDAFA2;
 }
 
 
@@ -141,19 +141,19 @@ input {
         <div class="categoryButtons">
             <button id="mass" title="Mass"><i class="fas fa-balance-scale fa-2x"></i></button>
             <button id="volume" title="Volume"><i class="fas fa-glass-whiskey fa-2x"></i></button>
+            <button id="cooking" title="Cooking"><i class="fa solid fa-spoon fa-2x"></i></button>
             <button id="temperature" title="Temperature"><i class="fa fa-thermometer-2 fa-2x"></i></button>
-      
             </div>
-	<input type="number" style="display: none" placeholder="Enter a number" >
 
+	<input type="number" style="display: none" placeholder="Enter a number" >
 	 <div class="metricImperial">
 	   <button id="toMetric" style="display:none">Imperial to metric</button>
 	   <button id="toImperial" style="display:none">Metric to imperial</button>
 	 </div>
 	 <div class="temp-unit-buttons">
-	   <button id="toCelsius" style="display:none">Celsius</button>
-	   <button id="toFahrenheit" style="display:none">Fahrenheit</button>
-	   <button id="toKelvin" style="display:none">Kelvin</button>
+	   <button id="toCelsius" style="display:none">to Celsius</button>
+	   <button id="toFahrenheit" style="display:none">to Fahrenheit</button>
+	   <button id="toKelvin" style="display:none">to Kelvin</button>
 	 </div>
 	 <div class="speed-units">
 	   <button id="mileToKm" style="display:none">mph</button>
@@ -163,12 +163,15 @@ input {
 	   <button id="hours" style="display:none">Hours</button>
 	   <button id="days" style="display:none">Days</button>
 	 </div>
+     <div class="cooking-units">
+        <button id="measurement" style="display:none">Cooking measurement equivalent</button>
+        <button id="m2ml" style="display:none">Cooking measurement to metric</button>
+      </div>
 	 </div>
     </div>
    
     
 
-    <br>
 	<div id="output" style="display:none"></div>
 	
 	<div>
@@ -192,6 +195,8 @@ const mileToKm = document.getElementById('mileToKm');
 const kmToMile = document.getElementById('kmToMile');
 const hours = document.getElementById('hours');
 const days = document.getElementById('days');
+const measurement = document.getElementById('measurement');
+const m2ml = document.getElementById('m2ml');
 const resetButton = document.getElementById('reset');
 
 
@@ -207,6 +212,8 @@ const massButton = document.getElementById('mass').addEventListener('click', (e)
 	kmToMile.style.display = 'none';
 	toMetric.style.display = 'block';
 	toImperial.style.display='block';
+    measurement.style.display = 'none';
+    m2ml.style.display = 'none';
 	resetButton.style.display = 'block';
 	toMetric.addEventListener('click', (e) => {
 		output.innerHTML = `${input.value} ounce &rarr; ${massUnits.imperial.ounce()} gram <br>
@@ -238,6 +245,8 @@ const volumeButton = document.getElementById('volume').addEventListener('click',
 	kmToMile.style.display = 'none';
 	toMetric.style.display = 'block';
 	toImperial.style.display='block';
+    measurement.style.display = 'none';
+    m2ml.style.display = 'none';
 	resetButton.style.display = 'block';
 	toMetric.addEventListener('click', (e) => {
 		output.innerHTML = `${input.value} fl. ounce &rarr; ${volumeUnits.imperial.fluidOunce()} ml <br>
@@ -258,6 +267,8 @@ const volumeButton = document.getElementById('volume').addEventListener('click',
 	input.value = null;
 });
 
+
+
 const temperatureButton = document.getElementById('temperature').addEventListener('click', (e) => {
 	toMetric.style.display = 'none';
 	toImperial.style.display = 'none';
@@ -269,6 +280,8 @@ const temperatureButton = document.getElementById('temperature').addEventListene
 	toCelsius.style.display = 'block';
 	toFahrenheit.style.display = 'block';
 	toKelvin.style.display = 'block';
+    measurement.style.display = 'none';
+    m2ml.style.display = 'none';
 	resetButton.style.display = 'block';
 	toCelsius.addEventListener('click', (e) =>{
 		output.innerHTML =`${input.value} &deg;F &rarr; ${temperatureUnits.fahrenheit.fToC()} &deg;C <br>
@@ -288,6 +301,39 @@ const temperatureButton = document.getElementById('temperature').addEventListene
 	output.innerHTML = "";
 	input.value = null;
 		
+});
+
+
+const cookingButton = document.getElementById('cooking').addEventListener('click', (e) => {
+	input.style.display = 'block';
+	toMetric.style.display = 'none';
+	toImperial.style.display = 'none';
+	toFahrenheit.style.display = 'none';
+	toCelsius.style.display = 'none';
+	toKelvin.style.display = 'none';
+	hours.style.display = 'none';
+	days.style.display = 'none';
+	mileToKm.style.display = 'none';
+	kmToMile.style.display = 'none';
+    measurement.style.display = 'block';
+    m2ml.style.display = 'block';
+	resetButton.style.display = 'block';
+	measurement.addEventListener('click', (e) =>{
+        output.innerHTML = `${input.value} teaspoon &rarr; ${cookingUnits.measurement.tpTotbsp()} tablespoon <br>
+		${input.value} tablespoon &rarr; ${cookingUnits.measurement.tbspToflon()} fl. ounce <br>
+		${input.value} tablespoon &rarr; ${cookingUnits.measurement.tbspTocup()} cup <br>
+		${input.value} fl. ounce &rarr; ${cookingUnits.measurement.flonTocup()} cup
+		`;
+	});	
+	m2ml.addEventListener('click', (e) =>{
+		output.innerHTML = `${input.value} teaspoon &rarr; ${cookingUnits.m2ml.tspToml()} ml <br>
+		${input.value} tablespoon &rarr; ${cookingUnits.m2ml.tbspToml()} ml <br>
+		${input.value} cup &rarr; ${cookingUnits.m2ml.cupToml()} ml <br>
+		`;
+	});
+	output.style.display = 'block';
+	output.innerHTML = "";
+	input.value = null;
 });
 
 
@@ -338,37 +384,37 @@ const lengthUnits = {
 const massUnits = {
 	imperial: {
 		ounce(){
-			let ounceToGram = (input.value * 28.35).toFixed(2);
+			let ounceToGram = (input.value * 28.35).toFixed(1);
 			return ounceToGram;
 		},
 		pound(){
-			let poundToKg = (input.value / 2.205).toFixed(2);
+			let poundToKg = (input.value / 2.205).toFixed(1);
 			return poundToKg;
 		},
 		stone(){
-			let stoneToKg = (input.value * 6.35).toFixed(2);
+			let stoneToKg = (input.value * 6.35).toFixed(1);
 			return stoneToKg;
 		},
 		imperialTon(){
-			let tonToTonne = (input.value * 1.016).toFixed(2);
+			let tonToTonne = (input.value * 1.016).toFixed(1);
 			return tonToTonne;
 		}
 	},
 	metric: {
 		gram(){
-			let gramToOunce = (input.value / 28.35).toFixed(2);
+			let gramToOunce = (input.value / 28.35).toFixed(1);
 			return gramToOunce;
 		},
 		kglb(){
-			let kgToPound = (input.value * 2.205).toFixed(2);
+			let kgToPound = (input.value * 2.205).toFixed(1);
 			return kgToPound;
 		},
 		kgst(){
-			let kgToStone = (input.value / 6.35).toFixed(2);
+			let kgToStone = (input.value / 6.35).toFixed(1);
 			return kgToStone;
 		},
 		metricTonne(){
-			let tonneToTon = (input.value / 1.016).toFixed(2);
+			let tonneToTon = (input.value / 1.016).toFixed(1);
 			return tonneToTon;
 		}
 	}
@@ -377,37 +423,37 @@ const massUnits = {
 const volumeUnits = {
 	imperial: {
 		fluidOunce(){
-			let flozToMl = (input.value * 28.413).toFixed(2);
+			let flozToMl = (input.value * 28.413).toFixed(1);
 			return flozToMl;
 		},
 		pint(){
-			let pintToL = (input.value / 1.76).toFixed(2);
+			let pintToL = (input.value / 1.76).toFixed(1);
 			return pintToL;
 		},
 		quart(){
-			let quartToL = (input.value * 1.137).toFixed(2);
+			let quartToL = (input.value * 1.137).toFixed(1);
 			return quartToL;
 		},
 		gallon(){
-			let gallonToL = (input.value * 4.546).toFixed(2);
+			let gallonToL = (input.value * 4.546).toFixed(1);
 			return gallonToL;
 		}
 	},
 	metric: {
 		ml(){
-			let mlToFloz = (input.value / 28.413).toFixed(2);
+			let mlToFloz = (input.value / 28.413).toFixed(1);
 			return mlToFloz;
 		},
 		lToPt(){
-			let lToPt = (input.value * 1.76).toFixed(2);
+			let lToPt = (input.value * 1.76).toFixed(1);
 			return lToPt;
 		},
 		lToQt(){
-			let lToQt = (input.value / 1.137).toFixed(2);
+			let lToQt = (input.value / 1.137).toFixed(1);
 			return lToQt;
 		},
 		lToGallon(){
-			let lToGallon = (input.value / 4.546).toFixed(2);
+			let lToGallon = (input.value / 4.546).toFixed(1);
 			return lToGallon;
 		}
 		
@@ -482,6 +528,41 @@ const timeUnits = {
 			let hrday = (input.value / 24).toFixed(2);
 			return hrday;
 		}
+	}
+};
+
+const cookingUnits = {
+	measurement: {
+		tpTotbsp(){
+			let tbsp = (input.value/3).toFixed(1);
+			return tbsp;
+		},
+        tbspToflon(){
+			let flounce = (input.value/2).toFixed(1);
+			return flounce;
+		},
+		tbspTocup(){
+			let cup = (input.value/16).toFixed(1);
+			return cup;
+		},
+        flonTocup(){
+			let cup = (input.value/8).toFixed(1);
+			return cup;
+		},
+	},
+	m2ml: {
+		tspToml(){
+			let ml = (input.value*4.93).toFixed(1);
+			return ml;
+		},
+        tbspToml(){
+			let ml = (input.value*14.79).toFixed(1);
+			return ml;
+		},
+		cupToml(){
+			let ml = (input.value*236.588).toFixed(1);
+			return ml;
+		},
 	}
 };
 
