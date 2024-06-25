@@ -322,7 +322,11 @@ const cookingButton = document.getElementById('cooking').addEventListener('click
         output.innerHTML = `${input.value} teaspoon &rarr; ${cookingUnits.measurement.tpTotbsp()} tablespoon <br>
 		${input.value} tablespoon &rarr; ${cookingUnits.measurement.tbspToflon()} fl. ounce <br>
 		${input.value} tablespoon &rarr; ${cookingUnits.measurement.tbspTocup()} cup <br>
-		${input.value} fl. ounce &rarr; ${cookingUnits.measurement.flonTocup()} cup
+		${input.value} fl. ounce &rarr; ${cookingUnits.measurement.flonTocup()} cup <br>
+		${input.value} tablespoon &rarr; ${cookingUnits.measurement.tbspTotsp()} teaspoon <br>
+		${input.value} fl. ounce &rarr; ${cookingUnits.measurement.flonTotbsp()} tablespoon <br>
+		${input.value} cup &rarr; ${cookingUnits.measurement.cupTotbsp()} tablespoon <br>
+		${input.value} cup &rarr; ${cookingUnits.measurement.cupToflon()} fl. ounce
 		`;
 	});	
 	m2ml.addEventListener('click', (e) =>{
@@ -423,37 +427,37 @@ const massUnits = {
 const volumeUnits = {
 	imperial: {
 		fluidOunce(){
-			let flozToMl = (input.value * 28.413).toFixed(1);
+			let flozToMl = (input.value * 28.413).toFixed(2);
 			return flozToMl;
 		},
 		pint(){
-			let pintToL = (input.value / 1.76).toFixed(1);
+			let pintToL = (input.value / 1.76).toFixed(2);
 			return pintToL;
 		},
 		quart(){
-			let quartToL = (input.value * 1.137).toFixed(1);
+			let quartToL = (input.value * 1.137).toFixed(2);
 			return quartToL;
 		},
 		gallon(){
-			let gallonToL = (input.value * 4.546).toFixed(1);
+			let gallonToL = (input.value * 4.546).toFixed(2);
 			return gallonToL;
 		}
 	},
 	metric: {
 		ml(){
-			let mlToFloz = (input.value / 28.413).toFixed(1);
+			let mlToFloz = (input.value / 28.413).toFixed(2);
 			return mlToFloz;
 		},
 		lToPt(){
-			let lToPt = (input.value * 1.76).toFixed(1);
+			let lToPt = (input.value * 1.76).toFixed(2);
 			return lToPt;
 		},
 		lToQt(){
-			let lToQt = (input.value / 1.137).toFixed(1);
+			let lToQt = (input.value / 1.137).toFixed(2);
 			return lToQt;
 		},
 		lToGallon(){
-			let lToGallon = (input.value / 4.546).toFixed(1);
+			let lToGallon = (input.value / 4.546).toFixed(2);
 			return lToGallon;
 		}
 		
@@ -534,33 +538,49 @@ const timeUnits = {
 const cookingUnits = {
 	measurement: {
 		tpTotbsp(){
-			let tbsp = (input.value/3).toFixed(1);
+			let tbsp = (input.value/3).toFixed(2);
 			return tbsp;
 		},
         tbspToflon(){
-			let flounce = (input.value/2).toFixed(1);
+			let flounce = (input.value/2).toFixed(2);
 			return flounce;
 		},
 		tbspTocup(){
-			let cup = (input.value/16).toFixed(1);
+			let cup = (input.value/16).toFixed(2);
 			return cup;
 		},
         flonTocup(){
-			let cup = (input.value/8).toFixed(1);
+			let cup = (input.value/8).toFixed(2);
 			return cup;
+		},
+		tbspTotsp(){
+			let tsp = (input.value*3).toFixed(2);
+			return tsp;
+		},
+        flonTotbsp(){
+			let tbsp = (input.value*2).toFixed(2);
+			return tbsp;
+		},
+		cupTotbsp(){
+			let tbsp = (input.value*16).toFixed(2);
+			return tbsp;
+		},
+        cupToflon(){
+			let flon = (input.value*8).toFixed(2);
+			return flon;
 		},
 	},
 	m2ml: {
 		tspToml(){
-			let ml = (input.value*4.93).toFixed(1);
+			let ml = (input.value*4.93).toFixed(2);
 			return ml;
 		},
         tbspToml(){
-			let ml = (input.value*14.79).toFixed(1);
+			let ml = (input.value*14.79).toFixed(2);
 			return ml;
 		},
 		cupToml(){
-			let ml = (input.value*236.588).toFixed(1);
+			let ml = (input.value*236.588).toFixed(2);
 			return ml;
 		},
 	}
