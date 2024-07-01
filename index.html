@@ -222,14 +222,16 @@ const massButton = document.getElementById('mass').addEventListener('click', (e)
 		output.innerHTML = `${input.value} ounce &rarr; ${massUnits.imperial.ounce()} gram <br>
 		${input.value} pound &rarr; ${massUnits.imperial.pound()} kg <br>
 		${input.value} stone &rarr; ${massUnits.imperial.stone()} kg <br>
-		${input.value} ton &rarr; ${massUnits.imperial.imperialTon()} tonne
+		${input.value} ton &rarr; ${massUnits.imperial.imperialTon()} tonne <br>
+  		${input.value} ounce &rarr; ${massUnits.imperial.ounceTopound()} pound
 		`;
 	});
 	toImperial.addEventListener('click', (e) => {
 		output.innerHTML = `${input.value} gram &rarr; ${massUnits.metric.gram()} ounce <br>
 		${input.value} kg &rarr; ${massUnits.metric.kglb()} pound <br>
 		${input.value} kg &rarr; ${massUnits.metric.kgst()} stone <br>
-		${input.value} tonne &rarr; ${massUnits.metric.metricTonne()} ton 
+		${input.value} tonne &rarr; ${massUnits.metric.metricTonne()} ton <br>
+  		${input.value} pound &rarr; ${massUnits.imperial.poundToounce()} ounce
 		`;
 	});
 	output.style.display = 'block';
@@ -391,38 +393,46 @@ const lengthUnits = {
 const massUnits = {
 	imperial: {
 		ounce(){
-			let ounceToGram = (input.value * 28.35).toFixed(1);
+			let ounceToGram = (input.value * 28.35).toFixed(2);
 			return ounceToGram;
 		},
 		pound(){
-			let poundToKg = (input.value / 2.205).toFixed(1);
+			let poundToKg = (input.value / 2.205).toFixed(2);
 			return poundToKg;
 		},
 		stone(){
-			let stoneToKg = (input.value * 6.35).toFixed(1);
+			let stoneToKg = (input.value * 6.35).toFixed(2);
 			return stoneToKg;
 		},
 		imperialTon(){
-			let tonToTonne = (input.value * 1.016).toFixed(1);
+			let tonToTonne = (input.value * 1.016).toFixed(2);
 			return tonToTonne;
+		}
+		ounceTopound(){
+			let pound = (input.value * 16).tofixed(2);
+			return pound;
 		}
 	},
 	metric: {
 		gram(){
-			let gramToOunce = (input.value / 28.35).toFixed(1);
+			let gramToOunce = (input.value / 28.35).toFixed(2);
 			return gramToOunce;
 		},
 		kglb(){
-			let kgToPound = (input.value * 2.205).toFixed(1);
+			let kgToPound = (input.value * 2.205).toFixed(2);
 			return kgToPound;
 		},
 		kgst(){
-			let kgToStone = (input.value / 6.35).toFixed(1);
+			let kgToStone = (input.value / 6.35).toFixed(2);
 			return kgToStone;
 		},
 		metricTonne(){
-			let tonneToTon = (input.value / 1.016).toFixed(1);
+			let tonneToTon = (input.value / 1.016).toFixed(2);
 			return tonneToTon;
+		},
+		poundToounce(){
+			let ounce = (input.value / 16).toFixed(2);
+			return ounce;
 		}
 	}
 };
