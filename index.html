@@ -223,7 +223,7 @@ const massButton = document.getElementById('mass').addEventListener('click', (e)
 		${input.value} pound &rarr; ${massUnits.imperial.pound()} kg <br>
 		${input.value} stone &rarr; ${massUnits.imperial.stone()} kg <br>
 		${input.value} ton &rarr; ${massUnits.imperial.imperialTon()} tonne <br>
-  		${input.value} ounce &rarr; ${massUnits.imperial.ounceTopound()} pound
+  		${input.value} ounce &rarr; ${massUnits.imperial.onTop()} pound
 		`;
 	});
 	toImperial.addEventListener('click', (e) => {
@@ -231,7 +231,7 @@ const massButton = document.getElementById('mass').addEventListener('click', (e)
 		${input.value} kg &rarr; ${massUnits.metric.kglb()} pound <br>
 		${input.value} kg &rarr; ${massUnits.metric.kgst()} stone <br>
 		${input.value} tonne &rarr; ${massUnits.metric.metricTonne()} ton <br>
-  		${input.value} pound &rarr; ${massUnits.imperial.poundToounce()} ounce
+  		${input.value} pound &rarr; ${massUnits.metric.pToon()} ounce
 		`;
 	});
 	output.style.display = 'block';
@@ -407,10 +407,10 @@ const massUnits = {
 		imperialTon(){
 			let tonToTonne = (input.value * 1.016).toFixed(2);
 			return tonToTonne;
-		}
-		ounceTopound(){
-			let pound = (input.value * 16).tofixed(2);
-			return pound;
+		},
+		onTop(){
+			let pd = (input.value / 16).toFixed(2);
+			return pd;
 		}
 	},
 	metric: {
@@ -430,9 +430,9 @@ const massUnits = {
 			let tonneToTon = (input.value / 1.016).toFixed(2);
 			return tonneToTon;
 		},
-		poundToounce(){
-			let ounce = (input.value / 16).toFixed(2);
-			return ounce;
+		pToon(){
+			let on = (input.value * 16.0).toFixed(2);
+			return on;
 		}
 	}
 };
@@ -605,3 +605,4 @@ const cookingUnits = {
    </script>
   </body>
 </html>
+
